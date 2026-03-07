@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1a56db;
+  --color-accent: #16bdca;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-gray-900 bg-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg
+           hover:opacity-90 transition-opacity focus:outline-none focus:ring-2
+           focus:ring-primary focus:ring-offset-2;
+  }
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+  }
+  .section-subheading {
+    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+  }
+}

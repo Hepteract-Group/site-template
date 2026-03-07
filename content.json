@@ -1,0 +1,77 @@
+{
+  "$schema": "./content.schema.json",
+  "business": {
+    "name": "Example Plumbing Services",
+    "tagline": "Fast, reliable plumbing across London",
+    "description": "We are a trusted local plumbing company serving London and the surrounding areas. With over 15 years of experience, we handle everything from emergency call-outs to full bathroom installations.",
+    "phone": "07700 900123",
+    "email": "hello@exampleplumbing.co.uk",
+    "address": "123 High Street, London, EC1A 1BB",
+    "category": "plumber",
+    "location": {
+      "city": "London",
+      "postcode": "EC1A 1BB",
+      "neighbourhood": "Clerkenwell",
+      "region": "Greater London"
+    },
+    "rating": 4.8,
+    "reviewCount": 124
+  },
+  "hero": {
+    "headline": "Your Trusted Local Plumber in London",
+    "subheadline": "Available 24/7 for emergencies. No call-out charge.",
+    "ctaText": "Get a Free Quote",
+    "ctaHref": "#contact"
+  },
+  "services": [
+    {
+      "id": "emergency",
+      "title": "Emergency Call-Outs",
+      "description": "Burst pipes, blocked drains, boiler breakdowns — we're there within the hour.",
+      "icon": "🚨"
+    },
+    {
+      "id": "installation",
+      "title": "Bathroom Installation",
+      "description": "Full bathroom fit-outs, power showers, and wet room conversions.",
+      "icon": "🛁"
+    },
+    {
+      "id": "boiler",
+      "title": "Boiler Service & Repair",
+      "description": "Gas Safe registered engineers. Annual services and emergency repairs.",
+      "icon": "🔥"
+    },
+    {
+      "id": "drains",
+      "title": "Drain Clearance",
+      "description": "High-pressure jetting and CCTV surveys for stubborn blockages.",
+      "icon": "🔧"
+    }
+  ],
+  "about": {
+    "headline": "15 Years Serving London",
+    "body": "We started as a small family business in 2009. Today, we're proud to be one of London's most trusted independent plumbing firms — known for honest pricing, clean workmanship, and always turning up on time.",
+    "values": ["On time, every time", "Transparent pricing", "Fully insured", "Gas Safe registered"]
+  },
+  "contact": {
+    "formEnabled": true,
+    "mapEnabled": false
+  },
+  "seo": {
+    "title": "Example Plumbing Services | London Plumber | 24/7 Emergency Callout",
+    "description": "Trusted local plumber in London. Available 24/7, no call-out charge. Gas Safe registered. Call 07700 900123.",
+    "keywords": ["plumber london", "emergency plumber", "boiler repair london", "drain clearance"]
+  },
+  "theme": {
+    "primaryColor": "#1a56db",
+    "accentColor": "#16bdca",
+    "font": "Inter"
+  },
+  "meta": {
+    "generatedAt": "",
+    "leadId": "",
+    "placeId": "",
+    "deployedUrl": ""
+  }
+}

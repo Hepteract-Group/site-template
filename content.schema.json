@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "content.schema.json",
+  "title": "RentAnOrg Site Template Content Schema",
+  "description": "Defines all dynamic content fields for a generated client website",
+  "type": "object",
+  "required": ["business", "hero", "services", "about", "contact", "seo"],
+  "properties": {
+    "business": {
+      "type": "object",
+      "required": ["name", "tagline", "phone", "category", "location"],
+      "properties": {
+        "name": { "type": "string" },
+        "tagline": { "type": "string" },
+        "description": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "address": { "type": "string" },
+        "category": { "type": "string" },
+        "location": {
+          "type": "object",
+          "required": ["city", "postcode"],
+          "properties": {
+            "city": { "type": "string" },
+            "postcode": { "type": "string" },
+            "neighbourhood": { "type": "string" },
+            "region": { "type": "string" }
+          }
+        },
+        "rating": { "type": "number", "minimum": 0, "maximum": 5 },
+        "reviewCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "required": ["headline", "ctaText", "ctaHref"],
+      "properties": {
+        "headline": { "type": "string" },
+        "subheadline": { "type": "string" },
+        "ctaText": { "type": "string" },
+        "ctaHref": { "type": "string" }
+      }
+    },
+    "services": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "description"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "icon": { "type": "string" }
+        }
+      }
+    },
+    "about": {
+      "type": "object",
+      "required": ["headline", "body"],
+      "properties": {
+        "headline": { "type": "string" },
+        "body": { "type": "string" },
+        "values": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "formEnabled": { "type": "boolean" },
+        "mapEnabled": { "type": "boolean" }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "required": ["title", "description"],
+      "properties": {
+        "title": { "type": "string", "maxLength": 70 },
+        "description": { "type": "string", "maxLength": 160 },
+        "keywords": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "primaryColor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "accentColor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "font": { "type": "string" }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "generatedAt": { "type": "string" },
+        "leadId": { "type": "string" },
+        "placeId": { "type": "string" },
+        "deployedUrl": { "type": "string" }
+      }
+    }
+  }
+}
