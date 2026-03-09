@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate content.json against schema
+        run: |
+          npm install -g ajv-cli 2>/dev/null || true
+          npx ajv validate -s content.schema.json -d content.json --errors=text \
+            && echo "✅ content.json is valid" \
+            || (echo "❌ content.json schema validation failed" && exit 1)
+
+      - name: Build site (static export)
+        run: npm run build
+        env:
+          # Needed by Next.js static export — use example values for CI
+          NEXT_PUBLIC_SITE_NAME: "CI Test Business"
+
+      - name: Check output exists
+        run: |
+          [ -d "out" ] && echo "✅ Static export generated in out/" || (echo "❌ out/ directory missing" && exit 1)
+          [ "$(ls -A out)" ] && echo "✅ out/ is not empty" || (echo "❌ out/ is empty" && exit 1)
